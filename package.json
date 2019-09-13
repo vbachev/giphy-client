@@ -1,11 +1,23 @@
 {
   "name": "giphy-client",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "homepage": "https://vbachev.github.io/giphy-client",
+  "private": true,
   "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "vasil@vasilbachev.com",
-  "license": "ISC"
+  "author": {
+    "name": "Vasil Bachev",
+    "email": "vasil@vasilbachev.com"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^4.40.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  }
 }
