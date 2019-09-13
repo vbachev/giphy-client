@@ -15,5 +15,15 @@ module.exports = {
     progress: true,
     open: true,
     stats: 'minimal'
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: 'babel-loader'
+      }
+    ]
   }
 }
