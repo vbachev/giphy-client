@@ -1,16 +1,20 @@
 import React from 'react'
 
 const SearchBar = ({ onSearch }) => {
-  const [keyword, setKeyword] = React.useState('')
+  const searchField = React.useRef(null)
+
+  React.useEffect(() => {
+    searchField.current.focus()
+  }, [])
 
   const submitKeyword = event => {
     event.preventDefault()
-    onSearch(keyword)
+    onSearch(searchField.current.value)
   }
 
   return (
     <form className='search-container' onSubmit={submitKeyword}>
-      <input type='text' className='search-field' placeholder='Search all the GIFs' value={keyword} onChange={e => setKeyword(e.target.value)} />
+      <input type='text' className='search-field' placeholder='Search all the GIFs' ref={searchField} />
       <button type='submit' className='search-button'>
         SEARCH
       </button>

@@ -9,6 +9,7 @@ const url = 'https://api.giphy.com/v1/gifs/search?api_key=CdRKiCMbTnt9CkZTZ0lGuk
 // - extract API calls to a separate module
 // - load some initial images
 // - animation while waiting for image requests
+// - keep local state for pagination, keyword
 
 const App = () => {
   const [images, setImages] = React.useState([])

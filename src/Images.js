@@ -2,8 +2,10 @@ import React from 'react'
 import Image from './Image'
 
 // @TODO:
-// - layout prop to control 1-column VS 3-column display
 // - listen to scroll events and trigger loading additional images
+// - message for no results
+// - display the keyword that was searched for and the total results count
+// - display layout buttons (grid/list)
 
 const Images = ({ images }) => {
   return (
