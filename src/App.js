@@ -9,13 +9,18 @@ const url = 'https://api.giphy.com/v1/gifs/search?api_key=CdRKiCMbTnt9CkZTZ0lGuk
 // - extract API calls to a separate module
 // - load some initial images
 // - animation while waiting for image requests
-// - keep local state for pagination, keyword
+// - keep local state for pagination
+// - message for no results
 
 const App = () => {
   const [images, setImages] = React.useState([])
+  const [keyword, setKeyword] = React.useState('')
+  const [total, setTotal] = React.useState(0)
 
   const searchByKeyword = async keyword => {
+    setKeyword(keyword)
     const response = await (await fetch(url + keyword)).json()
+    setTotal(response.pagination.total_count)
     setImages(response.data.map(item => ({
       title: item.title,
       url: item.images.fixed_width.url,
@@ -28,7 +33,7 @@ const App = () => {
     <div className='container'>
       <Logo />
       <SearchBar onSearch={searchByKeyword} />
-      <Images images={images} />
+      <Images images={images} total={total} keyword={keyword} />
     </div>
   )
 }

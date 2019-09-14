@@ -3,19 +3,23 @@ import Image from './Image'
 
 // @TODO:
 // - listen to scroll events and trigger loading additional images
-// - message for no results
-// - display the keyword that was searched for and the total results count
 // - display layout buttons (grid/list)
 
-const Images = ({ images }) => {
+const Images = ({ images, keyword, total }) => {
   return (
-    <ul className='images-list'>
-      {images.map(image => (
-        <li key={image.title}>
-          <Image {...image} />
-        </li>
-      ))}
-    </ul>
+    <div className='images-container'>
+      <div className='images-summary'>
+        <span className='images-keyword'>{keyword}</span>
+        <span className='images-total'>{total} GIFs</span>
+      </div>
+      <ul className='images-list'>
+        {images.map(image => (
+          <li key={image.title}>
+            <Image {...image} />
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }
 
