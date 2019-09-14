@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 640px;
   margin: auto;
   padding: 20px;
 }
@@ -55,7 +55,7 @@ body {
 .images-list {
   list-style-type: none;
   padding: 0;
-  margin: 0;
+  margin: 0 -10px;
   text-align: center;
 }
 
@@ -72,6 +72,35 @@ body {
 
 .images-total {
   color: #888;
+}
+
+.images-layout {
+  float: right;
+  color: #888;
+  font-weight: bold;
+}
+
+.layout-button {
+  border: 0 none;
+  background: #333;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin: 10px 0 0 10px;
+  vertical-align: bottom;
+}
+
+.layout-list .layout-button.layout-list,
+.layout-grid .layout-button.layout-grid {
+  background: #f66;
+}
+
+.layout-grid .images-list > li {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px;
 }
 
 .image-container {
