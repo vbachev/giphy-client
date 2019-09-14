@@ -1,0 +1,23 @@
+body {
+  background: #121212;
+  color: #ffffff;
+  font-family: sans-serif;
+}
+
+.logo-container {
+  font-size: 40px;
+  width: 4.4em;
+}
+
+.logo-mark {
+  width: auto;
+  height: 1.1em;
+  margin-bottom: -0.2em;
+}
+
+.logo-type {
+  display: inline-block;
+  margin: 0;
+  line-height: 1em;
+  font-size: 1em;
+}
