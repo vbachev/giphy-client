@@ -11,20 +11,16 @@ body {
   padding: 20px;
 }
 
-.header {
-  margin-bottom: 20px;
-}
-
 .logo-container {
+  margin: 0 0 15px;
+  text-align: center;
   font-size: 40px;
-  width: 4.4em;
-  margin: -0.1em -0.22em;
 }
 
 .logo-mark {
   width: auto;
   height: 1.1em;
-  margin-bottom: -0.2em;
+  margin: 0 0 -0.2em -0.2em;
 }
 
 .logo-type {

@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './Header'
+import Logo from './Logo'
 import Images from './Images'
 import SearchBar from './SearchBar'
 
@@ -7,6 +7,8 @@ const url = 'https://api.giphy.com/v1/gifs/search?api_key=CdRKiCMbTnt9CkZTZ0lGuk
 
 // @TODO:
 // - extract API calls to a separate module
+// - load some initial images
+// - animation while waiting for image requests
 
 const App = () => {
   const [images, setImages] = React.useState([])
@@ -23,7 +25,7 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Header />
+      <Logo />
       <SearchBar onSearch={searchByKeyword} />
       <Images images={images} />
     </div>
