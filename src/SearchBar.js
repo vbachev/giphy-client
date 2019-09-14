@@ -9,8 +9,11 @@ const SearchBar = ({ onSearch }) => {
   }
 
   return (
-    <form onSubmit={submitKeyword}>
-      <input id="keyword" value={keyword} onChange={e => setKeyword(e.target.value)} />
+    <form className='search-container' onSubmit={submitKeyword}>
+      <input type='text' className='search-field' placeholder='Search all the GIFs' value={keyword} onChange={e => setKeyword(e.target.value)} />
+      <button type='submit' className='search-button'>
+        SEARCH
+      </button>
     </form>
   )
 }

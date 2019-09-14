@@ -1,12 +1,24 @@
 body {
+  margin: 0;
   background: #121212;
   color: #ffffff;
   font-family: sans-serif;
 }
 
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
 .logo-container {
   font-size: 40px;
   width: 4.4em;
+  margin: -0.1em -0.22em;
 }
 
 .logo-mark {
@@ -20,4 +32,24 @@ body {
   margin: 0;
   line-height: 1em;
   font-size: 1em;
+}
+
+.search-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.search-field {
+  width: 100%;
+  padding: 10px 20px;
+  border: 0 none;
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: 0 none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 100%);
 }

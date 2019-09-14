@@ -14,11 +14,11 @@ const App = () => {
   }
 
   return (
-    <>
+    <div className='container'>
       <Header />
       <SearchBar onSearch={searchByKeyword} />
       <Images images={images} />
-    </>
+    </div>
   )
 }
 
