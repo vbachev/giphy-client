@@ -5,12 +5,20 @@ import SearchBar from './SearchBar'
 
 const url = 'https://api.giphy.com/v1/gifs/search?api_key=CdRKiCMbTnt9CkZTZ0lGukSczk6iT4Z6&limit=5&offset=0&rating=G&lang=en&q='
 
+// @TODO:
+// - extract API calls to a separate module
+
 const App = () => {
   const [images, setImages] = React.useState([])
 
   const searchByKeyword = async keyword => {
     const response = await (await fetch(url + keyword)).json()
-    setImages(response.data.map(item => item.images.preview_gif.url))
+    setImages(response.data.map(item => ({
+      title: item.title,
+      url: item.images.fixed_width.url,
+      width: item.images.fixed_width.width,
+      height: item.images.fixed_width.height
+    })))
   }
 
   return (
