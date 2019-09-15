@@ -4,10 +4,6 @@ import { initialState, reducer } from '../store'
 import Logo from './Logo'
 import Images from './Images'
 import SearchBar from './SearchBar'
-import Loader from './Loader'
-
-// @TODO:
-// - load some initial images
 
 const debounce = (delay, fn) => {
   let timeoutReference
@@ -19,16 +15,14 @@ const debounce = (delay, fn) => {
 
 const App = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
-  const { images, keyword, total, loading, layout } = state
+  const { images, keyword, total, layout } = state
 
   const searchByKeyword = async keyword => {
-    dispatch({ type: 'SHOW_LOADER' })
     const response = await giphy.fetchImages({ term: keyword })
     dispatch({ type: 'SET_IMAGES', payload: { ...response, keyword } })
   }
 
   const loadMoreImages = async () => {
-    dispatch({ type: 'SHOW_LOADER' })
     const response = await giphy.fetchImages({ term: keyword, offset: images.length })
     dispatch({ type: 'APPEND_IMAGES', payload: response })
   }
@@ -58,10 +52,6 @@ const App = () => {
         <div className='no-results'>
           No GIFs to show
         </div>
-      )}
-      
-      {loading && (
-        <Loader />
       )}
     </div>
   )
