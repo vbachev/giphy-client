@@ -1,5 +1,6 @@
 import React from 'react'
 import giphy from './giphy'
+import { initialState, reducer } from './store'
 import Logo from './Logo'
 import Images from './Images'
 import SearchBar from './SearchBar'
@@ -17,40 +18,25 @@ const debounce = (delay, fn) => {
 }
 
 const App = () => {
-  const [state, setState] = React.useState({
-    images: [],
-    keyword: '',
-    total: 0,
-    loading: false
-  })
+  const [state, dispatch] = React.useReducer(reducer, initialState)
+  const { images, keyword, total, loading, layout } = state
 
   const searchByKeyword = async keyword => {
-    setState({ ...state, loading: true })
+    dispatch({ type: 'SHOW_LOADER' })
     const response = await giphy.fetchImages({ term: keyword })
-    setState({
-      ...state,
-      keyword,
-      total: response.total,
-      images: response.images,
-      loading: false
-    })
+    dispatch({ type: 'SET_IMAGES', payload: { ...response, keyword } })
   }
 
   const loadMoreImages = async () => {
-    setState({ ...state, loading: true })
-    const response = await giphy.fetchImages({ term: state.keyword, offset: state.images.length })
-    setState({
-      ...state,
-      total: response.total,
-      images: state.images.concat(response.images),
-      loading: false
-    })
+    dispatch({ type: 'SHOW_LOADER' })
+    const response = await giphy.fetchImages({ term: keyword, offset: images.length })
+    dispatch({ type: 'APPEND_IMAGES', payload: response })
   }
 
   const onScroll = debounce(100, () => {
     const { clientHeight, offsetHeight } = document.documentElement
     const isAtBottom = clientHeight + window.scrollY === offsetHeight
-    const hasMoreImagesToLoad = state.images.length < state.total
+    const hasMoreImagesToLoad = images.length < total
     if (isAtBottom && hasMoreImagesToLoad) loadMoreImages()
   })
 
@@ -59,20 +45,22 @@ const App = () => {
     return () => window.removeEventListener('scroll', onScroll)
   }, [state]) // @TODO: optimise this as it rebinds listeners whenever state changes :(
 
+  const changeLayout = newLayout => dispatch({ type: 'CHANGE_LAYOUT', payload: newLayout })
+
   return (
     <div className='container'>
       <Logo />
       <SearchBar onSearch={searchByKeyword} />
       
-      {state.total ? (
-        <Images images={state.images} total={state.total} keyword={state.keyword} />
+      {total ? (
+        <Images {...{ images, total, keyword, layout }} onLayoutChange={changeLayout}/>
       ) : (
         <div className='no-results'>
           No GIFs to show
         </div>
       )}
       
-      {state.loading && (
+      {loading && (
         <Loader />
       )}
     </div>

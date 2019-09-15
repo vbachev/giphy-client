@@ -2,21 +2,18 @@ import React from 'react'
 import Image from './Image'
 
 // @TODO:
-// - listen to scroll events and trigger loading additional images
-// - move layout state up to App
 // - fix mobile layout
 
-const Images = ({ images, keyword, total }) => {
-  const [layout, setLayout] = React.useState('list')
+const Images = ({ images, keyword, total, layout, onLayoutChange }) => {
   return (
     <div className={`images-container layout-${layout}`}>
 
       <div className='images-layout'>
         Display as:
-        <button className='layout-button layout-grid' onClick={() => setLayout('grid')}>
+        <button className='layout-button layout-grid' onClick={() => onLayoutChange('grid')}>
           Grid
         </button>
-        <button className='layout-button layout-list' onClick={() => setLayout('list')}>
+        <button className='layout-button layout-list' onClick={() => onLayoutChange('list')}>
           List
         </button>
       </div>
