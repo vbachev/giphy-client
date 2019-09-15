@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const SearchForm = ({ onSearch }) => {
   const searchField = React.useRef(null)
@@ -20,6 +21,11 @@ const SearchForm = ({ onSearch }) => {
       </button>
     </form>
   )
+}
+
+const { func } = PropTypes
+SearchForm.propTypes = {
+  onSearch: func.isRequired
 }
 
 export default SearchForm

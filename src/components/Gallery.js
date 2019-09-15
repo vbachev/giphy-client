@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Image from './Image'
 
 // @TODO:
@@ -29,13 +30,24 @@ const Gallery = ({ images, keyword, totalImages, layout, onLayoutChange }) => {
 
       <ul className='images-list'>
         {images.map(image => (
-          <li key={image.title}>
+          <li key={image.id}>
             <Image {...image} />
           </li>
         ))}
       </ul>
     </div>
   )
+}
+
+const { string, number, func, arrayOf, shape } = PropTypes
+Gallery.propTypes = {
+  images: arrayOf(shape({
+    id: string
+  })).isRequired,
+  keyword: string.isRequired,
+  totalImages: number.isRequired,
+  layout: string.isRequired,
+  onLayoutChange: func.isRequired
 }
 
 export default Gallery

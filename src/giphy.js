@@ -15,6 +15,7 @@ export default {
     .then(response => response.json())
     .then(response => ({
       images: response.data.map(item => ({
+        id: item.id,
         title: item.title,
         url: item.images[IMAGE_FORMAT].url,
         width: item.images[IMAGE_FORMAT].width,
