@@ -1,6 +1,6 @@
 import React from 'react'
-import giphy from './giphy'
-import { initialState, reducer } from './store'
+import giphy from '../giphy'
+import { initialState, reducer } from '../store'
 import Logo from './Logo'
 import Images from './Images'
 import SearchBar from './SearchBar'
