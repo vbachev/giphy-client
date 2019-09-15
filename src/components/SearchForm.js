@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SearchBar = ({ onSearch }) => {
+const SearchForm = ({ onSearch }) => {
   const searchField = React.useRef(null)
 
   React.useEffect(() => {
@@ -22,4 +22,4 @@ const SearchBar = ({ onSearch }) => {
   )
 }
 
-export default SearchBar
+export default SearchForm

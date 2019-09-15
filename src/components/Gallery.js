@@ -4,7 +4,7 @@ import Image from './Image'
 // @TODO:
 // - fix mobile layout
 
-const Images = ({ images, keyword, total, layout, onLayoutChange }) => {
+const Gallery = ({ images, keyword, totalImages, layout, onLayoutChange }) => {
   return (
     <div className={`images-container layout-${layout}`}>
 
@@ -23,7 +23,7 @@ const Images = ({ images, keyword, total, layout, onLayoutChange }) => {
           {keyword}
         </span>
         <span className='images-total'>
-          {total} GIFs
+          {totalImages} GIFs
         </span>
       </div>
 
@@ -38,4 +38,4 @@ const Images = ({ images, keyword, total, layout, onLayoutChange }) => {
   )
 }
 
-export default Images
+export default Gallery

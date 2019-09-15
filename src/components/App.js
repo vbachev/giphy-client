@@ -2,8 +2,8 @@ import React from 'react'
 import giphy from '../giphy'
 import { initialState, reducer } from '../store'
 import Logo from './Logo'
-import Images from './Images'
-import SearchBar from './SearchBar'
+import Gallery from './Gallery'
+import SearchForm from './SearchForm'
 
 const debounce = (delay, fn) => {
   let timeoutReference
@@ -15,7 +15,7 @@ const debounce = (delay, fn) => {
 
 const App = () => {
   const [state, dispatch] = React.useReducer(reducer, initialState)
-  const { images, keyword, total, layout } = state
+  const { images, keyword, totalImages, layout } = state
 
   const searchByKeyword = async keyword => {
     const response = await giphy.fetchImages({ term: keyword })
@@ -30,7 +30,7 @@ const App = () => {
   const onScroll = debounce(100, () => {
     const { clientHeight, offsetHeight } = document.documentElement
     const isAtBottom = clientHeight + window.scrollY === offsetHeight
-    const hasMoreImagesToLoad = images.length < total
+    const hasMoreImagesToLoad = images.length < totalImages
     if (isAtBottom && hasMoreImagesToLoad) loadMoreImages()
   })
 
@@ -44,10 +44,9 @@ const App = () => {
   return (
     <div className='container'>
       <Logo />
-      <SearchBar onSearch={searchByKeyword} />
-      
-      {total ? (
-        <Images {...{ images, total, keyword, layout }} onLayoutChange={changeLayout}/>
+      <SearchForm onSearch={searchByKeyword} />
+      {images.length ? (
+        <Gallery {...{ images, totalImages, keyword, layout }} onLayoutChange={changeLayout} />
       ) : (
         <div className='no-results'>
           No GIFs to show
