@@ -5,7 +5,7 @@ import Image from './Image'
 // @TODO:
 // - fix mobile layout
 
-const Gallery = ({ images, keyword, totalImages, layout, onLayoutChange }) => {
+const Gallery = ({ images, keyword, totalImages, layout = 'list', onLayoutChange }) => {
   return (
     <div className={`images-container layout-${layout}`}>
 

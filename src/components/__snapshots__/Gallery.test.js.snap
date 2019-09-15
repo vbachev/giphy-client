@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders a gallery 1`] = `
+<div
+  className="images-container layout-grid"
+>
+  <div
+    className="images-layout"
+  >
+    Display as:
+    <button
+      className="layout-button layout-grid"
+      onClick={[Function]}
+    >
+      Grid
+    </button>
+    <button
+      className="layout-button layout-list"
+      onClick={[Function]}
+    >
+      List
+    </button>
+  </div>
+  <div
+    className="images-summary"
+  >
+    <span
+      className="images-keyword"
+    >
+      foo
+    </span>
+    <span
+      className="images-total"
+    >
+      23
+       GIFs
+    </span>
+  </div>
+  <ul
+    className="images-list"
+  >
+    <li>
+      <div
+        className="image-container"
+      >
+        <img
+          alt="foo"
+          className="image"
+          src="https://foo.com"
+        />
+      </div>
+    </li>
+    <li>
+      <div
+        className="image-container"
+      >
+        <img
+          alt="bar"
+          className="image"
+          src="https://bar.com"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;

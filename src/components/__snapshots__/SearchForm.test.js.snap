@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders the search form 1`] = `
+<form
+  className="search-container"
+  onSubmit={[Function]}
+>
+  <input
+    className="search-field"
+    placeholder="Search all the GIFs"
+    type="text"
+  />
+  <button
+    className="search-button"
+    type="submit"
+  >
+    SEARCH
+  </button>
+</form>
+`;

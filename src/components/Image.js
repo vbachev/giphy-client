@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 // @TODO:
-// - animation while loading
 // - lazy-load when in viewport
 // - display title, user avatar and user name on hover
 
