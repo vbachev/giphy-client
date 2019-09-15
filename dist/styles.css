@@ -105,6 +105,12 @@ body {
 
 .image-container {
   margin-bottom: 20px;
+  display: inline-block;
+  background: #333;
+}
+
+.image-container img {
+  vertical-align: text-bottom;
 }
 
 .no-results {
